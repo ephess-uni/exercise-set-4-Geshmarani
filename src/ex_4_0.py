@@ -10,7 +10,6 @@ FILENAME = get_data_file_path('messages.log')
 
 
 def get_shutdown_events(logfile):
-    def get_shutdown_events(logfile):
     """
     Extracts shutdown events from a logfile.
 
