@@ -12,12 +12,18 @@ except ImportError:
 FILENAME = get_data_file_path('messages.log')
 # >>>> DO NOT MODIFY CODE ABOVE <<<<
 
-
 def num_shutdowns(logfile):
     """
-    Your docstring here.  Replace the pass keyword below with your implementation.
+    Counts the number of shutdown events in a logfile.
+
+    Args:
+        logfile (str): The path to the logfile.
+
+    Returns:
+        int: The number of shutdown events.
     """
-    pass
+    shutdown_events = get_shutdown_events(logfile)  # Use the function from ex_4_0 to get shutdown events
+    return len(shutdown_events)  # Return the number of shutdown events
 
 
 # >>>> The code below will call your function and print the results
