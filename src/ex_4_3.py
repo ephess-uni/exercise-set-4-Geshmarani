@@ -14,13 +14,29 @@ except ImportError:
 FILENAME = get_data_file_path("messages.log")
 # >>>> DO NOT MODIFY CODE ABOVE <<<<
 
-
 def time_between_shutdowns(logfile):
     """
-    Your docstring here.  Replace the pass keyword below with your implementation.
-    """
-    pass
+    Calculates the time difference between the first and last shutdown events in a logfile.
 
+    Args:
+        logfile (str): The path to the logfile.
+
+    Returns:
+        datetime.timedelta or None: The time difference between shutdown events as a timedelta object.
+                                    Returns None if there are less than 2 shutdown events.
+    """
+    shutdown_events = get_shutdown_events(logfile)
+    
+    if len(shutdown_events) < 2:
+        return None  
+    
+    first_shutdown_time = logstamp_to_datetime(shutdown_events[0].split()[1])
+    last_shutdown_time = logstamp_to_datetime(shutdown_events[-1].split()[1])
+    
+    time_difference = last_shutdown_time - first_shutdown_time
+    
+    return time_difference 
+    
 
 # >>>> The code below will call your function and print the results
 if __name__ == "__main__":
