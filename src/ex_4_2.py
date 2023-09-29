@@ -4,9 +4,15 @@ from datetime import datetime
 
 def logstamp_to_datetime(datestr):
     """
-    Your docstring here.  Replace the pass keyword below with your implementation.
+    Converts a date string in the format "%Y-%m-%dT%H:%M:%S" to a datetime object.
+
+    Args:
+        datestr (str): A date string in the format "%Y-%m-%dT%H:%M:%S".
+
+    Returns:
+        datetime.datetime: A datetime object representing the input date and time.
     """
-    pass
+    return datetime.strptime(datestr, "%Y-%m-%dT%H:%M:%S")
 
 
 # >>>> The code below will call your function and print the results
